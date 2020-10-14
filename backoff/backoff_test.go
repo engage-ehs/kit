@@ -7,8 +7,7 @@ import (
 	"strings"
 	"testing"
 	"time"
-
-	"effective.ie/cuan/kit/errors"
+	"errors"
 )
 
 func TestConfig(t *testing.T) {

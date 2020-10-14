@@ -2,11 +2,11 @@ package backoff_test
 
 import (
 	"context"
+	"errors"
 	"log"
 	"time"
 
-	"effective.ie/cuan/kit/backoff"
-	"effective.ie/cuan/kit/errors"
+	"github.com/engage-ehs/kit/backoff"
 )
 
 func Example() {
@@ -36,6 +36,8 @@ type NetworkError struct {
 	ShouldRetry bool
 	Underlying  error
 }
+
+func (e NetworkError) Error() string { return e.Underlying.Error() }
 
 func shouldretry(err error) bool {
 	if err == nil {
